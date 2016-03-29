@@ -82,10 +82,11 @@ var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
 /* Print header on index page */
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
+$("#header").prepend(formattedBioPic);
+//$("#header").append(formattedWelcomeMsg);
+//$("#header").append(formattedRole);
+//$("#header").append(formattedName);
+
 
 /* Contact Info from bio JSON */
 var formattedContactInfo = [];
@@ -133,6 +134,7 @@ function displayWork(){
 	}
 }
 
+/* function to display projects */
 projects.display = function(){
 	if(projects.projects.length > 0){
 		for(project in projects.projects){
@@ -154,6 +156,7 @@ projects.display = function(){
 	}
 }
 
+/* function to display education */
 education.display = function(){
 	if(education.schools.length > 0 || education.onlineCourses.length > 0){
 		for(school in education.schools){
