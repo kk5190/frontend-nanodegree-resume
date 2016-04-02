@@ -28,16 +28,27 @@ var education = {
 			"location": "Puducherry",
 			"degree": "Masters",
 			"majors": ["CS"],
-			"dates": 2013,
-			"url": "http://pondiuni.edu.in"
+			"dates": 2016,
+			"url": "http://pondiuni.edu.in",
+			"image":"images/fry.jpg"
 		},
 		{
-			"name": "Pondicherry University",
-			"location": "Puducherry",
+			"name": "B. R. Ambedkar",
+			"location": "Bihar",
 			"degree": "Masters",
-			"majors": ["CS"],
-			"dates": 2013,
-			"url": "http://pondiuni.edu.in"
+			"majors": ["Mathematics"],
+			"dates": 2012,
+			"url": "http://pondiuni.edu.in",
+			"image":"images/fry.jpg"
+		},
+		{
+			"name": "L. S. College",
+			"location": "Bihar",
+			"degree": "Bachelors",
+			"majors": ["Mathematics"],
+			"dates": 2010,
+			"url": "http://pondiuni.edu.in",
+			"image":"images/fry.jpg"
 		}
 	],
 	"onlineCourses": [
@@ -67,7 +78,19 @@ var projects = {
 			"title":"Portfolio Mockup to HTML",
 			"dates":2016,
 			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
-			"images":["images/197x148.gif"]
+			"images":["images/fry.jpg"]
+		},
+		{
+			"title":"Reader of Appliance Display",
+			"dates":2015,
+			"description":"Developed an Android App using OpenCV and Tesseract. The app detects and read seven-segment digits..",
+			"images":["images/fry.jpg"]
+		},
+		{
+			"title":"2048",
+			"dates":2016,
+			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
+			"images":["images/fry.jpg"]
 		}
 	]
 }
@@ -81,11 +104,14 @@ var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
 
+
 /* Print header on index page */
-$("#header").prepend(formattedBioPic);
-//$("#header").append(formattedWelcomeMsg);
-//$("#header").append(formattedRole);
-//$("#header").append(formattedName);
+$("#biopic").append(formattedBioPic);
+
+$("#header-body").append(formattedName);
+$("#header-body").append(formattedRole);
+$("#header-body").append(formattedWelcomeMsg);
+
 
 
 /* Contact Info from bio JSON */
@@ -98,7 +124,7 @@ formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location))
 
 /* Add skills if any */
 if(bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
+	$("#header-body").append(HTMLskillsStart);
 
 	for(i in bio.skills) {
 		$("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
@@ -143,15 +169,17 @@ projects.display = function(){
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
 			var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
 			var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+			
+			for(img in projects.projects[project].images){
+				var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[img]);
+				$(".project-entry:last").append(formattedProjectImage);
+			}
 
 			$(".project-entry:last").append(formattedProjectTitle);
 			$(".project-entry:last").append(formattedProjectDates);
 			$(".project-entry:last").append(formattedProjectDescription);
 
-			for(img in projects.projects[project].images){
-				var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[img]);
-				$(".project-entry:last").append(formattedProjectImage);
-			}
+			
 		}
 	}
 }
@@ -167,11 +195,13 @@ education.display = function(){
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);			
 			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-			
+			var formattedSchoolImage = HTMLschoolImage.replace("%data%", education.schools[school].image);
 
-			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+			$(".education-entry:last").append(formattedSchoolImage);
+			$(".education-entry:last").append(formattedSchoolName);
 			$(".education-entry:last").append(formattedSchoolDates);
 			$(".education-entry:last").append(formattedSchoolLocation);
+			$(".education-entry:last").append(formattedSchoolDegree);
 			$(".education-entry:last").append(formattedSchoolMajor);
 			
 		}	
@@ -183,5 +213,7 @@ projects.display();
 education.display();
 
 $("#mapDiv").append(googleMap);
+
+
 
  
