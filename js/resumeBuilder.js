@@ -78,19 +78,19 @@ var projects = {
 			"title":"Portfolio Mockup to HTML",
 			"dates":2016,
 			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
-			"images":["images/fry.jpg"]
+			"images":["images/2048.png"]
 		},
 		{
 			"title":"Reader of Appliance Display",
 			"dates":2015,
-			"description":"Developed an Android App using OpenCV and Tesseract. The app detects and read seven-segment digits..",
-			"images":["images/fry.jpg"]
+			"description":"Developed an Android App using OpenCV and Tesseract. The app detects and read seven-segment digits.text-to-speech feature and easy access with volume buttons.",
+			"images":["images/road.png"]
 		},
 		{
 			"title":"2048",
 			"dates":2016,
 			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
-			"images":["images/fry.jpg"]
+			"images":["images/2048.png"]
 		}
 	]
 }
