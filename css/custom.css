@@ -60,7 +60,7 @@ li.flex-item {
 
 
 
-#topContacts, #footerContacts span {
+#topContacts span, #footerContacts span {
     padding: 5px;
 }
 
