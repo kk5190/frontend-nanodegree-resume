@@ -27,7 +27,7 @@ var HTMLbioPic = '<img class="center-block img-responsive img-circle" height="32
 var HTMLwelcomeMsg = '<p class="welcome-message">%data%</p>';
 
 var HTMLskillsStart = '<ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskills = '<li class="flex-item"><span class="badge">%data%</span></li>';
 
 var HTMLworkStart = '<div class="thumbnail work-entry"></div>';
 var HTMLworkEmployer = '<div class="caption"><h5><a href="#">%data%';
