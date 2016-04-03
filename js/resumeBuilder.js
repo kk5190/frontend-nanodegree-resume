@@ -18,7 +18,7 @@ var bio = {
 		"HTML","CSS","JavaScript","jQuery","Bootstrap","Drupal","MySQL","Java"
 	],
 	"bioPic":"images/logo.jpg"
-}
+};
 
 
 var education = {
@@ -59,7 +59,7 @@ var education = {
 			"url": "http://www.udacity.com/course/ud804"
 		}
 	]
-}
+};
 
 var work ={
 	"jobs":[
@@ -71,7 +71,7 @@ var work ={
 			"description":"Manages CMS based website using Drupal"
 		}
 	]
-}
+};
 
 var projects = {
 	"projects":[
@@ -94,7 +94,7 @@ var projects = {
 			"images":["images/2048.png"]
 		}
 	]
-}
+};
 
 
 /* Name and Role from bio JSON */
@@ -183,7 +183,7 @@ projects.display = function(){
 			
 		}
 	}
-}
+};
 
 /* function to display education */
 education.display = function(){
@@ -207,7 +207,7 @@ education.display = function(){
 			
 		}	
 	}
-}
+};
 
 displayWork();
 projects.display();
