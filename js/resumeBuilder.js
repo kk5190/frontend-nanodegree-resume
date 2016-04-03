@@ -67,6 +67,7 @@ var work ={
 			"employer":"Group10",
 			"title":"Intern - Software Developer",
 			"dates":"January 2016 - Present",
+			"location": "Gurgaon, India",
 			"description":"Manages CMS based website using Drupal"
 		}
 	]
