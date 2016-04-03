@@ -1,0 +1,78 @@
+body {
+  padding-top: 70px;
+  background: #bbb;
+  position: relative;
+}
+nav{
+  height: 10px;
+}
+h1{
+ font-family: 'Candal', sans-serif;
+  
+}
+
+
+h2{
+  font-family: 'Candal', sans-serif;
+  font-size: 24px;
+  font-style: none;
+}
+header{
+	padding-top: 30px;
+	
+}
+
+
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 0 5%;
+}
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+li.flex-item {
+    display: inherit;
+}
+
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
+  float: left;
+}
+
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
+  float: right;
+
+}
+
+
+
+#topContacts span {
+    padding: 5px;
+}
+
+
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
+#mapDiv {
+  height: 500px;
+  width: 100%;
+  padding-bottom: 8%;
+}
