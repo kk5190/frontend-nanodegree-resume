@@ -3,6 +3,7 @@ This is empty on purpose! Your code to build the resume will go here.
  */
 
 /*JSON Declaration */
+
 var bio = {
 	"name":"Krishna Kumar Singh",
 	"role":"Web Developer",
@@ -17,7 +18,7 @@ var bio = {
 	"skills":[
 		"HTML","CSS","JavaScript","jQuery","Bootstrap","Drupal","MySQL","Java"
 	],
-	"bioPic":"images/logo.jpg"
+	"biopic":"images/logo.jpg"
 };
 
 
@@ -28,7 +29,7 @@ var education = {
 			"location": "Puducherry",
 			"degree": "Masters",
 			"majors": ["CS"],
-			"dates": 2016,
+			"dates": '2016',
 			"url": "http://pondiuni.edu.in",
 			"image":"images/fry.jpg"
 		},
@@ -37,7 +38,7 @@ var education = {
 			"location": "Bihar",
 			"degree": "Masters",
 			"majors": ["Mathematics"],
-			"dates": 2012,
+			"dates": '2012',
 			"url": "http://pondiuni.edu.in",
 			"image":"images/fry.jpg"
 		},
@@ -46,7 +47,7 @@ var education = {
 			"location": "Bihar",
 			"degree": "Bachelors",
 			"majors": ["Mathematics"],
-			"dates": 2010,
+			"dates": '2010',
 			"url": "http://pondiuni.edu.in",
 			"image":"images/fry.jpg"
 		}
@@ -55,7 +56,7 @@ var education = {
 		{
 			"title": "JavaScript Syntax",
 			"school": "Udacity",
-			"dates": 2014,
+			"dates": '2014',
 			"url": "http://www.udacity.com/course/ud804"
 		}
 	]
@@ -77,19 +78,19 @@ var projects = {
 	"projects":[
 		{
 			"title":"Portfolio Mockup to HTML",
-			"dates":2016,
+			"dates":'2016',
 			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
 			"images":["images/2048.png"]
 		},
 		{
 			"title":"Reader of Appliance Display",
-			"dates":2015,
+			"dates":'2015',
 			"description":"Developed an Android App using OpenCV and Tesseract. The app detects and read seven-segment digits.text-to-speech feature and easy access with volume buttons.",
 			"images":["images/road.png"]
 		},
 		{
 			"title":"2048",
-			"dates":2016,
+			"dates":'2016',
 			"description":"Developed a personal portfolio page using HTML, CSS, and the Bootstrap framework. The page is fully responsive and works on mobile, tablet, and desktop browsers.",
 			"images":["images/2048.png"]
 		}
@@ -98,53 +99,58 @@ var projects = {
 
 
 /* Name and Role from bio JSON */
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+
+bio.display = function(){
+	var formattedName = HTMLheaderName.replace("%data%",bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
 
 
-/* Print header on index page */
-$("#biopic").append(formattedBioPic);
+	/* Print header on index page */
+	$("#biopic").append(formattedBioPic);
 
-$("#header-body").append(formattedName);
-$("#header-body").append(formattedRole);
-$("#header-body").append(formattedWelcomeMsg);
-
-
-
-/* Contact Info from bio JSON */
-var formattedContactInfo = [];
-formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
-formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
-formattedContactInfo.push(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
+	$("#header-body").append(formattedName);
+	$("#header-body").append(formattedRole);
+	$("#header-body").append(formattedWelcomeMsg);
 
 
-/* Add skills if any */
-if(bio.skills.length > 0) {
-	$("#header-body").append(HTMLskillsStart);
 
-	for(i in bio.skills) {
-		$("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+	/* Contact Info from bio JSON */
+	var formattedContactInfo = [];
+	formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
+	formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
+	formattedContactInfo.push(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+	formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
+
+
+	/* Add skills if any */
+	if(bio.skills.length > 0) {
+		$("#header-body").append(HTMLskillsStart);
+
+		for(var i in bio.skills) {
+			$("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+		}
 	}
-}
 
-/* Add contact info in heade an dfooter */
-for(contact in formattedContactInfo) {
-	$("#topContacts").append(formattedContactInfo[contact]);
-	$("#footerContacts").append(formattedContactInfo[contact]);
-}
+	/* Add contact info in heade an dfooter */
+	for(var contact in formattedContactInfo) {
+		$("#topContacts").append(formattedContactInfo[contact]);
+		$("#footerContacts").append(formattedContactInfo[contact]);
+	}
+
+};
 
 /* function to display work */
 
-function displayWork(){
+work.display = function(){
 	if(work.jobs.length > 0){
 		$("#workExperience").append(HTMLworkStart);	
 
-		for(job in work.jobs){
+		for(var job in work.jobs){
 		
 			var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
 			var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
@@ -159,19 +165,19 @@ function displayWork(){
 		}
 
 	}
-}
+};
 
 /* function to display projects */
 projects.display = function(){
 	if(projects.projects.length > 0){
-		for(project in projects.projects){
+		for(var project in projects.projects){
 			$("#projects").append(HTMLprojectStart);
 
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
 			var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
 			var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
 			
-			for(img in projects.projects[project].images){
+			for(var img in projects.projects[project].images){
 				var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[img]);
 				$(".project-entry:last").append(formattedProjectImage);
 			}
@@ -188,7 +194,7 @@ projects.display = function(){
 /* function to display education */
 education.display = function(){
 	if(education.schools.length > 0 || education.onlineCourses.length > 0){
-		for(school in education.schools){
+		for(var school in education.schools){
 			$("#education").append(HTMLschoolStart);
 
 			var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
@@ -209,7 +215,8 @@ education.display = function(){
 	}
 };
 
-displayWork();
+bio.display();
+work.display();
 projects.display();
 education.display();
 

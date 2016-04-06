@@ -3,8 +3,8 @@ body {
   background: #bbb;
   position: relative;
 }
-nav{
-  height: 10px;
+#navbar{
+  background: #fff;
 }
 h1{
  font-family: 'Candal', sans-serif;
